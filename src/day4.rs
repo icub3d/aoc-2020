@@ -108,5 +108,5 @@ fn test_day3() {
     }
 
     assert_eq!(total, 281);
-    assert_eq!(good, 226);
+    assert_eq!(good, 160);
 }
