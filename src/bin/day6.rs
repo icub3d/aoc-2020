@@ -1,15 +1,22 @@
-#[test]
-fn day6() {
-    use std::collections::HashSet;
-    use std::fs::File;
-    use std::io::BufRead;
-    use std::io::BufReader;
+use std::collections::HashSet;
+use std::fs::File;
+use std::io::BufRead;
+use std::io::BufReader;
+use std::iter::FromIterator;
 
+fn main() {
     let file = File::open("inputs/6").unwrap();
     let buf = BufReader::new(file);
+    let aa: Vec<String> = buf.lines().map(|l| l.unwrap()).collect();
+
+    day6(&aa);
+    day6_2(&aa);
+}
+
+fn day6(aa: &[String]) {
     let mut total = 0;
     let mut all: HashSet<char> = HashSet::new();
-    let aa: Vec<String> = buf.lines().map(|l| l.unwrap()).collect();
+
     for a in aa.iter() {
         if a == "" {
             total += all.len();
@@ -22,27 +29,16 @@ fn day6() {
     }
     total += all.len();
 
-    assert_eq!(total, 6549);
+    println!("total: {}", total)
 }
 
-#[test]
-fn day6_2() {
-    use std::collections::HashSet;
-    use std::fs::File;
-    use std::io::BufRead;
-    use std::io::BufReader;
-    use std::iter::FromIterator;
-
-    let file = File::open("inputs/6").unwrap();
-    let buf = BufReader::new(file);
+fn day6_2(aa: &[String]) {
     let mut total = 0;
     let mut all: HashSet<char> = HashSet::new();
-    let aa: Vec<String> = buf.lines().map(|l| l.unwrap()).collect();
     let mut none = false;
     for a in aa.iter() {
         if a == "" {
             none = false;
-            println!("{}", all.len());
             total += all.len();
             all = HashSet::new();
             continue;
@@ -59,9 +55,8 @@ fn day6_2() {
                 none = true;
             }
         }
-        println!("{:?}", all);
     }
     total += all.len();
 
-    assert_eq!(total, 3466);
+    println!("total: {}", total)
 }

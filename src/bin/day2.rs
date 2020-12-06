@@ -1,3 +1,30 @@
+use std::fs::File;
+use std::io::BufRead;
+use std::io::BufReader;
+
+fn main() {
+    let file = File::open("inputs/2").unwrap();
+    let buf = BufReader::new(file);
+    let mut total = 0;
+    let mut total2 = 0;
+    let _aa: Vec<Entry> = buf
+        .lines()
+        .map(|l| {
+            let e = Entry::new(l.unwrap());
+            if e.valid() {
+                total += 1;
+            }
+            if e.valid2() {
+                total2 += 1;
+            }
+            e
+        })
+        .collect();
+
+    println!("valid 1: {}", total);
+    println!("valid 2: {}", total2);
+}
+
 #[derive(PartialEq, Debug)]
 pub struct Entry {
     pub min: i64,
@@ -50,32 +77,4 @@ impl Entry {
             false
         }
     }
-}
-
-#[test]
-fn test_day2() {
-    use std::fs::File;
-    use std::io::BufRead;
-    use std::io::BufReader;
-
-    let file = File::open("inputs/2").unwrap();
-    let buf = BufReader::new(file);
-    let mut total = 0;
-    let mut total2 = 0;
-    let _aa: Vec<Entry> = buf
-        .lines()
-        .map(|l| {
-            let e = Entry::new(l.unwrap());
-            if e.valid() {
-                total += 1;
-            }
-            if e.valid2() {
-                total2 += 1;
-            }
-            e
-        })
-        .collect();
-
-    assert_eq!(total, 493);
-    assert_eq!(total2, 593);
 }
