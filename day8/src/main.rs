@@ -5,7 +5,7 @@ use std::io::BufReader;
 fn main() {
     let file = File::open("inputs/8").unwrap();
     let buf = BufReader::new(file);
-    let mut aa: Vec<(bool, String)> = buf.lines().map(|l| (false, l.unwrap())).collect();
+    let aa: Vec<(bool, String)> = buf.lines().map(|l| (false, l.unwrap())).collect();
 
     let mut tmp = aa.clone();
     match valid(&mut tmp) {
