@@ -5,7 +5,7 @@ use std::io::BufReader;
 use std::collections::HashMap;
 
 fn main() {
-    let file = File::open("inputs/10").unwrap();
+    let file = File::open("input").unwrap();
     let buf = BufReader::new(file);
     let mut aa: Vec<usize> = buf
         .lines()

@@ -1,5 +1,6 @@
 // Look, ma! I have a type system and OO! :)
 use std::collections::HashMap;
+use std::fs;
 
 type Cup = usize;
 type Cups = Vec<Cup>;
@@ -73,7 +74,8 @@ impl Game {
 }
 
 fn main() {
-    let mut game = Game::new("247819356");
+    let input = fs::read_to_string("input").unwrap();
+    let mut game = Game::new(&input);
     for x in 0..100 {
         game.round(x);
     }
@@ -81,7 +83,7 @@ fn main() {
 
     // Use a map to store positions this time, so we don't have to
     // work through the list of 1 million entries 10 million times.
-    let cups = "247819356"
+    let cups = input
         .chars()
         .map(|b| b.to_digit(10).unwrap() as usize)
         .collect::<Cups>();

@@ -96,7 +96,7 @@ impl Tile {
 
 fn main() {
     // Just playing around here with the functional style :)
-    let contents = fs::read_to_string("input/20").unwrap();
+    let contents = fs::read_to_string("input").unwrap();
     let mut tiles: Vec<Tile> = contents
         .split("\n\n")
         .collect::<Vec<&str>>()
@@ -278,7 +278,6 @@ fn main() {
             'matcher: for x in 0..rot.rows - monster.rows {
                 for dy in 0..monster.columns {
                     for dx in 0..monster.rows {
-                        println!("{} {} {} {}", x, y, dx, dy);
                         let m = monster[&(dx, dy)];
                         let r = rot[&(x + dx, y + dy)];
                         if m == '#' && r != '#' {

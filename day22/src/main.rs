@@ -3,7 +3,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 fn main() {
-    let br = BufReader::new(File::open("input/22").unwrap());
+    let br = BufReader::new(File::open("input").unwrap());
     let mut players = vec![VecDeque::<usize>::new(), VecDeque::<usize>::new()];
     let mut cur = 0;
 

@@ -6,7 +6,7 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 
 fn main() {
-    let file = File::open("input/16").unwrap();
+    let file = File::open("input").unwrap();
     let buf = BufReader::new(file);
     let aa: Vec<String> = buf.lines().map(|l| l.unwrap()).collect();
 

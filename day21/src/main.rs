@@ -5,7 +5,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 fn main() {
     // Get the list.
-    let f = File::open("input/21").unwrap();
+    let f = File::open("input").unwrap();
     let buf = BufReader::new(f);
     let mut allergens = HashSet::new();
     let mut ingredients = HashSet::new();

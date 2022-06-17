@@ -24,7 +24,7 @@ fn moves(s: String) -> Vec<String> {
 }
 
 fn main() {
-    let br = BufReader::new(File::open("input/24").unwrap());
+    let br = BufReader::new(File::open("input").unwrap());
 
     // We'll parse the line with these and then track it's position
     // with the deltas.

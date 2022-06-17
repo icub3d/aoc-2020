@@ -1,7 +1,14 @@
 use rustc_hash::FxHashMap;
-
+use std::fs;
 fn main() {
-    let init: Vec<usize> = vec![6, 13, 1, 15, 2, 0];
+    let init: Vec<usize> = fs::read_to_string("input")
+        .unwrap()
+        .split(',')
+        .map(|s| {
+            println!("{}", s);
+            s.parse::<usize>().unwrap()
+        })
+        .collect();
     let mut numbers: Vec<usize> = Vec::with_capacity(30_000_000);
     let mut last: FxHashMap<usize, usize> = FxHashMap::default();
     for (i, &v) in init.iter().enumerate() {

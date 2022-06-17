@@ -17,7 +17,7 @@ enum Token {
 }
 
 fn main() {
-    let file = File::open("input/18").unwrap();
+    let file = File::open("input").unwrap();
     let buf = BufReader::new(file);
     let aa: Vec<String> = buf.lines().map(|l| l.unwrap()).collect();
     let mut total = 0;

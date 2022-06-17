@@ -3,7 +3,7 @@ use std::io::BufRead;
 use std::io::BufReader;
 
 fn main() {
-    let file = File::open("inputs/11").unwrap();
+    let file = File::open("input").unwrap();
     let buf = BufReader::new(file);
     let aa: Vec<Vec<char>> = buf
         .lines()
